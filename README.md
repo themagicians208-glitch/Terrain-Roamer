@@ -2,8 +2,26 @@
 
 [![Chickensoft Badge][chickensoft-badge]][chickensoft-website] [![Discord][discord-badge]][discord] [![Read the docs][read-the-docs-badge]][docs] ![branch coverage][branch-coverage]
 
-Terrain Roamer is a small third-person Godot exploration game built with C#. Wander through the terrain, jump across the landscape, and enjoy the high-quality lighting and shadows. _It includes [saving and loading][save-load], including full
-game state preservation!_
+**Terrain Roamer** is a third-person 3D exploration platformer built with **Godot 4 and C#**. Explore a detailed landscape, jump between platforms and mushrooms, collect coins, and avoid falling off the world. The project emphasizes polished lighting and shadows alongside a modular, testable game architecture.
+
+### ✨ Highlights
+
+- **Third-person exploration:** Navigate a 3D environment with keyboard or supported gamepad controls.
+- **Jump and bounce gameplay:** Use the jump action to cross gaps and bounce from special mushrooms.
+- **Collectibles:** Explore the level and collect coins.
+- **Save and load:** Preserve game state using Chickensoft serialization and save-file tooling.
+- **State-driven architecture:** Organize gameplay logic with hierarchical state machines and clear separation between game state and presentation.
+- **Testability:** Use GoDotTest and supporting tools to test game logic and node behavior.
+- **Modern 3D rendering:** Godot Forward+ rendering, Jolt physics, and high-resolution shadow settings.
+
+### 🧰 Built With
+
+- **Engine:** Godot 4.7 with .NET/C# support
+- **Language:** C# targeting .NET 8
+- **Architecture and utilities:** Chickensoft LogicBlocks, AutoInject, Serialization, Collections, and related packages
+- **Testing:** GoDotTest, GodotTestDriver, Shouldly, and Moq
+
+This repository is also an example of applying modular C# architecture and automated testing practices to a Godot game.
 
 > [!IMPORTANT]
 > Be sure to run [`git lfs pull`][lfs] to resolve the binary files.
