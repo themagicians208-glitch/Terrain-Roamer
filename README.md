@@ -99,10 +99,6 @@ This project is a result of two and a half years of learning, [the other dozen o
 
 I've written an entire treatise about the architecture behind this demo. You can read about it over at [Enjoyable Game Architecture][game-arch].
 
-## 💁 Getting Help
-
-_Found something wrong or need help?_ Please join us in the [Chickensoft Discord server][discord] to let us know!
-
 > 💡 This game was generated from the [Chickensoft GodotGame Template][GodotGame]. The Godot Game Template README contains documentation about how how the tests, code coverage, CI/CD, app entrypoint, debug profiles, and versioning work.
 
 ---
