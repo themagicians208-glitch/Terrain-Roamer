@@ -21,7 +21,7 @@
 - **Architecture and utilities:** Chickensoft LogicBlocks, AutoInject, Serialization, Collections, and related packages
 - **Testing:** GoDotTest, GodotTestDriver, Shouldly, and Moq
 
-This repository is also an example of applying modular C# architecture and automated testing practices to a Godot game.
+Terrain Roamer is my Godot game project, combining third-person exploration gameplay with a modular C# architecture and automated testing.
 
 > [!IMPORTANT]
 > Be sure to run [`git lfs pull`][lfs] to resolve the binary files.
@@ -53,7 +53,7 @@ Chickensoft's packages are designed to make building games easier while followin
 
 On the other hand, it does result in a little bit of boilerplate, but that's going to be true whenever you make code modular enough to be fully unit-tested. Personally, I believe the benefits outweigh the little bit of additional boilerplate, especially for studios that have more than one person contributing to the codebase.
 
-This project is a result of two and a half years of learning, [the other dozen or so open source Chickensoft packages][chickensoft-website], and a ton of help and support I've received from the Godot community.
+The project uses open-source tools and libraries from the Godot and Chickensoft communities. Their contributions are acknowledged here, alongside the asset and music credits below.
 
 - ✅ Saving and loading using [Serialization], [Serialization.Godot], and [SaveFileBuilder]. You can read all about how to implement a save system like this one over at [Serialization for C# Games](https://chickensoft.games/blog/serialization-for-csharp-games).
 
@@ -99,7 +99,7 @@ This project is a result of two and a half years of learning, [the other dozen o
 
 I've written an entire treatise about the architecture behind this demo. You can read about it over at [Enjoyable Game Architecture][game-arch].
 
-> 💡 This game was generated from the [Chickensoft GodotGame Template][GodotGame]. The Godot Game Template README contains documentation about how how the tests, code coverage, CI/CD, app entrypoint, debug profiles, and versioning work.
+> 💡 The project uses Chickensoft libraries for state management, dependency provisioning, serialization, and testing. See the linked documentation above for details about those tools.
 
 ---
 
@@ -129,7 +129,7 @@ Since we're using [LogicBlocks], here's some of the more interesting state diagr
 
 ---
 
-🐣 Package generated from a 🐤 Chickensoft Template — <https://chickensoft.games>
+Built with Godot and C#, with open-source libraries and tools credited throughout this README.
 
 <!-- Links -->
 
