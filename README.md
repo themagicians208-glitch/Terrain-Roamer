@@ -1,165 +1,64 @@
-# 🕹 Terrain Roamer
+# Terrain Roamer
 
-[![Chickensoft Badge][chickensoft-badge]][chickensoft-website] [![Discord][discord-badge]][discord] [![Read the docs][read-the-docs-badge]][docs] ![branch coverage][branch-coverage]
+**Terrain Roamer** is my third-person 3D exploration platformer built with Godot and C#. Explore the landscape, jump between platforms and mushrooms, collect coins, and avoid falling off the world. The project combines gameplay systems with a modular architecture and automated testing.
 
-**Terrain Roamer** is a third-person 3D exploration platformer built with **Godot 4 and C#**. Explore a detailed landscape, jump between platforms and mushrooms, collect coins, and avoid falling off the world. The project emphasizes polished lighting and shadows alongside a modular, testable game architecture.
+## Gameplay
 
-### ✨ Highlights
+[View the gameplay recording](https://github.com/user-attachments/assets/2b9f55bc-e5c7-45b4-8e93-eb05945f1890)
 
-- **Third-person exploration:** Navigate a 3D environment with keyboard or supported gamepad controls.
-- **Jump and bounce gameplay:** Use the jump action to cross gaps and bounce from special mushrooms.
-- **Collectibles:** Explore the level and collect coins.
-- **Save and load:** Preserve game state using Chickensoft serialization and save-file tooling.
-- **State-driven architecture:** Organize gameplay logic with hierarchical state machines and clear separation between game state and presentation.
-- **Testability:** Use GoDotTest and supporting tools to test game logic and node behavior.
-- **Modern 3D rendering:** Godot Forward+ rendering, Jolt physics, and high-resolution shadow settings.
+## Features
 
-### 🧰 Built With
+- Third-person movement through a 3D environment.
+- Jumping and mushroom-bounce mechanics.
+- Coin collection and exploration objectives.
+- Save/load functionality using save-file and serialization tooling.
+- State-driven gameplay logic and dependency injection.
+- Automated tests using GoDotTest and related testing libraries.
+- Godot Forward+ rendering and Jolt physics configuration.
 
-- **Engine:** Godot 4.7 with .NET/C# support
-- **Language:** C# targeting .NET 8
-- **Architecture and utilities:** Chickensoft LogicBlocks, AutoInject, Serialization, Collections, and related packages
-- **Testing:** GoDotTest, GodotTestDriver, Shouldly, and Moq
+## Technology
 
-Terrain Roamer is my Godot game project, combining third-person exploration gameplay with a modular C# architecture and automated testing.
+- **Engine:** Godot .NET SDK 4.7.2
+- **Language/runtime:** C# and .NET 8
+- **Architecture and utilities:** Chickensoft LogicBlocks, AutoInject, Serialization, Collections, SaveFileBuilder, and related packages.
+- **Testing:** GoDotTest, GodotTestDriver, Shouldly, and Moq.
 
-> [!IMPORTANT]
-> Be sure to run [`git lfs pull`][lfs] to resolve the binary files.
+## Getting started
 
----
+### Requirements
 
-<p align="center">
-<img alt="Cardboard Box with Chickensoft Logo" src="docs/preview.png" width="100%">
-</p>
+- Godot .NET SDK 4.7.2
+- .NET SDK 8
+- Git LFS, for repository assets tracked with Git LFS
 
-## ⏯️ Gameplay
+### Setup
 
-<https://github.com/user-attachments/assets/2b9f55bc-e5c7-45b4-8e93-eb05945f1890>
+1. Clone this repository.
+2. Run `git lfs pull` to download LFS-managed files.
+3. Open the project in Godot 4.7.2 with .NET support.
+4. Allow Godot to import project resources, then run the project from the editor.
 
-> Most 3D assets are from the fine folks at [GDQuest] — go check out their stuff and support them! You'll notice that this project is loosely inspired by GDQuest's [ThirdPersonController], but completely rewritten using Chickensoft's best practice recommendations in C# (and with state machines)!
->
-> Music from [FreePD] — go check them out, too!
-> Other sound effects are licensed under CC0.
+For C# development, open `GameDemo.sln` in a compatible IDE after the project has been opened once in Godot.
 
-## 🎮 How to Play
+## Controls
 
-You'll need to setup your [Godot C# development environment][setup-docs]. This should work with the current .NET LTS release and stable Godot version. You'll need to open the project in Godot once before you attempt to launch it from your code editor.
+- **W / A / S / D:** Move.
+- **Space:** Jump or bounce. Hold Space while falling to bounce as soon as you land.
 
-Use WASD to move around. Bounce with spacebar. Hold down spacebar while falling to bounce as soon as you hit the ground. Jump on the mushrooms, collect all the coins, and don't fall off the world!
+## Architecture and testing
 
-## 🏆 Game Architecture
+The game uses state machines to separate gameplay logic from presentation, with Chickensoft packages supporting state management, dependency provisioning, serialization, and testability. The repository includes state diagrams under `docs/` and test-related dependencies in `GameDemo.csproj`.
 
-Chickensoft's packages are designed to make building games easier while following an opinionated architecture that takes a lot of work out of the decision-making. Following a highly opinionated architecture has a few advantages: mainly, the code is easier to learn, fully testable, more consistent, and other people can learn the architecture rules and get up to speed fairly quickly.
+Test execution has not been independently verified as part of this README update.
 
-On the other hand, it does result in a little bit of boilerplate, but that's going to be true whenever you make code modular enough to be fully unit-tested. Personally, I believe the benefits outweigh the little bit of additional boilerplate, especially for studios that have more than one person contributing to the codebase.
+## Asset and dependency credits
 
-The project uses open-source tools and libraries from the Godot and Chickensoft communities. Their contributions are acknowledged here, alongside the asset and music credits below.
+This project uses third-party libraries and assets. The codebase references Chickensoft open-source packages for game architecture and testing. The existing project notes credit **GDQuest** for many 3D assets, **FreePD** for music, and CC0-licensed sound effects. Review the terms for each asset and dependency before redistributing them.
 
-- ✅ Saving and loading using [Serialization], [Serialization.Godot], and [SaveFileBuilder]. You can read all about how to implement a save system like this one over at [Serialization for C# Games](https://chickensoft.games/blog/serialization-for-csharp-games).
+- [Chickensoft](https://chickensoft.games/)
+- [GDQuest](https://www.gdquest.com/)
+- [FreePD](https://freepd.com/)
 
-- ✅ Testing with [GoDotTest]. GoDotTest is designed for use with CI/CD, as well as local testing and compatibility with VSCode's debug launch profiles, allowing us to easily hook into and debug tests during development.
+## License note
 
-- ✅ Node mixins using [Introspection]: we can add additional code to node scripts at build time using C# source generation, which makes up for the lack of mixin support in C#.
-
-  Using mixins is a [data-driven technique][mixins-ecs]. By combining data-driven techniques with object-oriented programming, we can leverage the best of both worlds to make that code is exceptionally clean and easy to maintain.
-
-- ✅ Dependency provisioning via [AutoInject]: node dependencies are resolved in a tree-based manner by looking through a node's ancestors until it finds one that provides what the dependent node is looking for.
-
-  Supplying dependencies in a tree-based manner mirrors Godot's node-based  approach and solves the age-old problem of needing something higher-up in the scene tree before the parent node has had a chance to initialize it. Under the hood, AutoInject temporarily subscribes to the parent and calls the child back once the dependency is available.
-
-  Finally, AutoInject provides mechanisms for faking dependencies easily in unit tests.
-
-- ✅ Two-phase initialization, accomplished with AutoInject's [Enhanced Lifecycles].
-
-  Splitting a node's initialization up into two steps make it easier to write testable node scripts. The first phase allows the node to create the values it wants to use, and the second phase allows it to consume those values for initial setup.
-
-  AutoInject adds a property to each node script it's used on, `IsTesting`, that allows it to discern whether or not it's running in-game or in a test environment, skipping the first phase during testing so that mock or fake objects can be used instead.
-
-- ✅ Faking node trees during unit tests using [GodotNodeInterfaces].
-
-  GodotNodeInterfaces provides generated interfaces and adapters for every object in GodotSharp that extends `GodotObject`, allowing us to access these objects in a way that makes it easy to mock for unit tests. Note that AutoInject requires that we add GodotNodeInterfaces to our project, even if we don't actually use it (and most games won't ever need to use it — this game just happens to be fully unit tested).
-
-  GodotNodeInterfaces also provides alternative methods for manipulating a node's children that accept interfaces rather than concrete node types, allowing us to use a fake scene tree during unit tests for nodes that need to be attached to the scene tree during testing.
-
-- ✅ A consistent approach to state management using [LogicBlocks] and domain-driven design.
-
-  For nodes that require state, we separate their state from their presentation by creating a hierarchical state machine (i.e., a logic block) for the node and consuming it through a simple binding system, ensuring our view is always synchronized with its state.
-
-  Also, LogicBlocks also generates pictures of the state diagrams, so that's reason enough — scroll down to see the state diagrams in this project!
-
-  Using LogicBlocks for all logic everywhere sometimes results in views with very simple states, but the additional effort makes it very consistent: i.e., if a node does anything more than simple visualization, you know you can find the dirty details in its logic block. Plus, separating visualization from state makes it super easy to test the logic block in isolation.
-
-  Additionally, following domain-driven design means our logic blocks can share and use domain repository objects and react to changes in the domain model, keeping all the active logic blocks synchronized to changes occurring across the entire game, similar to an event-bus model.
-
-- ✅ Simplified reactive utilities to power domain-driven modeling using Chickensoft's [Collections] package.
-
-  To accomplish reactive, easy to maintain game domain models, we use some super simplified rx-style observable objects. The API is similar to an observable, but with a few tweaks for ergonomics and a simplified implementation to keep it lightweight using C#'s vanilla events.
-
-- ✅ Consistent, automatically enforced coding style via the Chickensoft [EditorConfig]. Combined with the project settings included from [GodotGame], VSCode will automatically format your code whenever you save. And, it'll flag code-style issues, keeping everything annoyingly consistent.
-
-I've written an entire treatise about the architecture behind this demo. You can read about it over at [Enjoyable Game Architecture][game-arch].
-
-> 💡 The project uses Chickensoft libraries for state management, dependency provisioning, serialization, and testing. See the linked documentation above for details about those tools.
-
----
-
-## 📐State Diagrams
-
-Since we're using [LogicBlocks], here's some of the more interesting state diagrams in the project, generated from the code.
-
-### Application State
-
-![Application State Diagram](docs/app.png)
-
-### Game State
-
-![Game State Diagram](docs/game.png)
-
-### Player State
-
-![Player State Diagram](docs/player.png)
-
-### Coin State
-
-![Coin State Diagram](docs/coin.png)
-
-### Jumpshroom State
-
-![Jumpshroom State Diagram](docs/jumpshroom.png)
-
----
-
-Built with Godot and C#, with open-source libraries and tools credited throughout this README.
-
-<!-- Links -->
-
-<!-- Header -->
-[chickensoft-badge]: https://chickensoft.games/img/badges/chickensoft_badge.svg
-[chickensoft-website]: https://chickensoft.games
-[discord-badge]: https://chickensoft.games/img/badges/discord_badge.svg
-[discord]: https://discord.gg/gSjaPgMmYW
-[read-the-docs-badge]: https://chickensoft.games/img/badges/read_the_docs_badge.svg
-[docs]: https://chickensoft.games/docs
-[branch-coverage]: badges/branch_coverage.svg
-
-<!-- Article -->
-[GoDotTest]: https://github.com/chickensoft-games/go_dot_test
-[setup-docs]: https://chickensoft.games/docs/setup
-[Godotgame]: https://github.com/chickensoft-games/GodotGame
-[GDQuest]: https://www.gdquest.com/
-[ThirdPersonController]: https://www.gdquest.com/news/2022/12/godot-4-third-person-controller/
-[FreePD]: https://freepd.com/
-[AutoInject]: https://github.com/chickensoft-games/AutoInject
-[Enhanced Lifecycles]: https://github.com/chickensoft-games/AutoInject?tab=readme-ov-file#-enhanced-lifecycle
-[mixins-ecs]: https://en.wikipedia.org/wiki/Entity_component_system#Is_ECS_a_useful_concept?
-[Introspection]: https://github.com/chickensoft-games/Introspection
-[GodotNodeInterfaces]: https://github.com/chickensoft-games/GodotNodeInterfaces
-[LogicBlocks]: https://github.com/chickensoft-games/LogicBlocks
-[EditorConfig]: https://github.com/chickensoft-games/EditorConfig
-[game-arch]: https://chickensoft.games/blog/game-architecture
-[lfs]: https://git-lfs.com/
-[save-load]: https://chickensoft.games/blog/serialization-for-csharp-games
-[Serialization]: https://github.com/chickensoft-games/Serialization
-[Serialization.Godot]: https://github.com/chickensoft-games/Serialization.Godot
-[Collections]: https://github.com/chickensoft-games/Collections
-[SaveFileBuilder]: https://github.com/chickensoft-games/SaveFileBuilder
+The repository's current `LICENSE` file names Chickensoft Organization as the copyright holder. That file has not been changed in this documentation update; verify that it is the correct license for this repository and its contents before relying on it as the license for your own contributions.
